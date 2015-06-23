@@ -49,6 +49,7 @@ protected
       :director,
       :runtime_in_minutes,
       :poster_image_url,
+      :poster,
       :description
     )
   end
