@@ -8,7 +8,7 @@ class Movie < ActiveRecord::Base
   validates :description, presence: true
   validates :poster_image_url, presence: true
   validates :release_date, presence: true
-  validate :release_date_is_in_the_future
+  # validate :release_date_is_in_the_future
 
   def review_average
     if !reviews.empty?
@@ -20,10 +20,10 @@ class Movie < ActiveRecord::Base
 
 protected
   
-  def release_date_is_in_the_future
-    if release_date.present?
-      errors.add(:release_date, "should probably be in the future") if release_date < Date.today
-    end
-  end
+  # def release_date_is_in_the_future
+  #   if release_date.present?
+  #     errors.add(:release_date, "should probably be in the future") if release_date < Date.today
+  #   end
+  # end
 
 end
