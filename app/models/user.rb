@@ -14,6 +14,3 @@ class User < ActiveRecord::Base
   end
 
 end
-
-
-######## HSHS NOW DO AUTHORIZATION CHECKS! ########
