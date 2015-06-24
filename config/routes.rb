@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   namespace :admin do
-    resources :users, only: [:index, :show, :destroy]
+    resources :users
   end
   get '/admin/next_users_page', to: 'admin/users#next_page'
   get '/admin/prev_users_page', to: 'admin/users#prev_page' 

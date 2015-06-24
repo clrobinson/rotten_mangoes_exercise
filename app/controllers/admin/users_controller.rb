@@ -29,8 +29,35 @@ class Admin::UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
+    destroyed_user_full_name = @user.full_name
     @user.destroy
-    redirect_to admin_users_path
+    redirect_to admin_users_path, notice: "User: #{destroyed_user_full_name} destroyed."
+  end
+
+  def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.new(admin_user_params)
+    if @user.save
+      redirect_to admin_users_path, notice: "User: #{@user.full_name} created."
+    else
+      render :new
+    end
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(admin_user_params)
+      redirect_to admin_users_path, notice: "#User: {@user.full_name} updated."
+    else
+      render :edit
+    end
   end
 
 protected
@@ -40,6 +67,10 @@ protected
     if (@current_user == nil) || (@current_user.admin != true)
       redirect_to movies_path
     end
+  end
+
+  def admin_user_params
+    params.require(:user).permit(:email, :firstname, :lastname, :admin, :password, :password_confirmation)
   end
 
 end
