@@ -1,6 +1,10 @@
 <h1>Admin User Control</h1>
 <hr>
-<% @users.each do |user| %>
+<div>
+  <%= link_to "<< Previous Page", admin_prev_users_page_path %> | Page <%= session[:admin_users_page] %> of <%= @max_pages %> | <%= link_to "Next Page >>", admin_next_users_page_path %>
+</div>
+<hr>
+<% @users_page.each do |user| %>
   <h2>User ID: <%= user.id %> -- <%= user.email %></h2>
   <p>Full Name: <%= user.full_name %></p>
   <p><%= link_to "See Full Entry", admin_user_path(user) %></p>

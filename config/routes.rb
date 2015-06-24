@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users, only: [:index, :show, :destroy]
   end
+  get '/admin/next_users_page', to: 'admin/users#next_page'
+  get '/admin/prev_users_page', to: 'admin/users#prev_page' 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
