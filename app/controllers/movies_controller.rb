@@ -56,16 +56,16 @@ protected
   end
 
   def handle_index_search
-    @movies = @movies.where("title LIKE ?", "%#{params[:t]}%") if params[:t].present?
-    @movies = @movies.where("director LIKE ?", "%#{params[:d]}%") if params[:d].present?
+    @movies = @movies.title_includes(params[:t]) if params[:t].present?
+    @movies = @movies.director_includes(params[:d]) if params[:d].present?
     if params[:length].present?
       case params[:length]
       when 'less90'
-        @movies = @movies.where("runtime_in_minutes < 90")
+        @movies = @movies.less_than_90_mins_long
       when '90to120'
-        @movies = @movies.where("runtime_in_minutes >= 90 AND runtime_in_minutes <= 120")
+        @movies = @movies.from_90_to_120_mins_long
       when '120more'
-        @movies = @movies.where("runtime_in_minutes > 120")
+        @movies = @movies.more_than_120_mins_long
       end
     end
   end

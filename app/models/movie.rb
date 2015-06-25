@@ -1,4 +1,9 @@
 class Movie < ActiveRecord::Base
+  scope :title_includes, ->(title_text) { where("title LIKE ?", "%#{title_text}%") }
+  scope :director_includes, ->(dir_text) { where("director LIKE ?", "%#{dir_text}%") }
+  scope :less_than_90_mins_long, -> { where("runtime_in_minutes < 90") }
+  scope :from_90_to_120_mins_long, -> { where("runtime_in_minutes >= 90 AND runtime_in_minutes <= 120") }
+  scope :more_than_120_mins_long, -> { where("runtime_in_minutes > 120") }
 
   has_many :reviews
 
