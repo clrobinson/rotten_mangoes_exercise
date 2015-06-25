@@ -1,46 +1,7 @@
 <h1>Rotten Mangoes</h1>
 <hr>
-<h2>Search Rotten Mangoes...</h2>
-<%= form_tag(movies_path, method: 'get') do %>
-  <%= label_tag(:t, "Search Movie Title:") %>
-  <%= text_field_tag(:t) %>
-  <br>
-  <%= label_tag(:d, "Search Movie Director:") %>
-  <%= text_field_tag(:d) %>
-  <br>
-  <%= label_tag(:length, "Movie Length:") %>
-  <%= select_tag(:length, "<option value='less90'>Under 90 Minutes</option><option value='90to120'>From 90 to 120 Minutes</option><option value='120more'>More Than 120 Minutes</option>".html_safe, include_blank: true) %>
-  <br>
-  <br>
-  <%= submit_tag("Search") %>
-<% end %>
-<% if params[:t].present? %>
-  <p>Movies with '<%= params[:t] %>' in the title</p>
-<% end %>
-<% if params[:d].present? %>
-  <p>Movies with '<%= params[:d] %>' in the director name</p>
-<% end %>
-<% if params[:length].present? %>
-  <% case params[:length] %>
-  <% when 'less90' %>
-    <p>Movies shorter than 90 minutes</p>
-  <% when '90to120' %>
-    <p>Movies from 90 minutes to 120 minutes</p>
-  <% when '120more' %>
-    <p>Movies longer than 120 minutes</p>
-  <% end %>
-<% end %>
+<%= render 'search' %>
 <hr>
 <%= link_to "Submit a Movie!", new_movie_path %>
 <hr>
-<% @movies.each do |movie| %>
-  <%= link_to image_tag(movie.poster_image_url), movie_path(movie) %>
-  <h2><%= link_to movie.title, movie_path(movie) %></h2>
-  <%= image_tag movie.poster_url.to_s %>
-  <small>(<%= link_to "edit this movie", edit_movie_path(movie) %>)</small>
-  <p>Rating: <%= movie.review_average %>/10</p>
-  <h3><%= formatted_date(movie.release_date) %></h3>
-  <h4>Directed by:  <%= movie.director %> | Runtime: <%= movie.runtime_in_minutes %> minutes</h4>
-  <p><%= movie.description %></p>
-  <hr>
-<% end %>
+<%= render @movies %>

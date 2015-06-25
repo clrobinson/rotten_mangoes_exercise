@@ -1,0 +1,9 @@
+<%= link_to image_tag(movie.poster_image_url), movie_path(movie) %>
+<h2><%= link_to movie.title, movie_path(movie) %></h2>
+<%= image_tag movie.poster_url.to_s %>
+<small>(<%= link_to "edit this movie", edit_movie_path(movie) %>)</small>
+<p>Rating: <%= movie.review_average %>/10</p>
+<h3><%= formatted_date(movie.release_date) %></h3>
+<h4>Directed by:  <%= movie.director %> | Runtime: <%= movie.runtime_in_minutes %> minutes</h4>
+<p><%= movie.description %></p>
+<hr>

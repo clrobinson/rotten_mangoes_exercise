@@ -1,0 +1,30 @@
+<h2>Search Rotten Mangoes...</h2>
+<%= form_tag(movies_path, method: 'get') do %>
+  <%= label_tag(:t, "Search Movie Title:") %>
+  <%= text_field_tag(:t) %>
+  <br>
+  <%= label_tag(:d, "Search Movie Director:") %>
+  <%= text_field_tag(:d) %>
+  <br>
+  <%= label_tag(:length, "Movie Length:") %>
+  <%= select_tag(:length, "<option value='less90'>Under 90 Minutes</option><option value='90to120'>From 90 to 120 Minutes</option><option value='120more'>More Than 120 Minutes</option>".html_safe, include_blank: true) %>
+  <br>
+  <br>
+  <%= submit_tag("Search") %>
+<% end %>
+<% if params[:t].present? %>
+  <p>Movies with '<%= params[:t] %>' in the title</p>
+<% end %>
+<% if params[:d].present? %>
+  <p>Movies with '<%= params[:d] %>' in the director name</p>
+<% end %>
+<% if params[:length].present? %>
+  <% case params[:length] %>
+  <% when 'less90' %>
+    <p>Movies shorter than 90 minutes</p>
+  <% when '90to120' %>
+    <p>Movies from 90 minutes to 120 minutes</p>
+  <% when '120more' %>
+    <p>Movies longer than 120 minutes</p>
+  <% end %>
+<% end %>
