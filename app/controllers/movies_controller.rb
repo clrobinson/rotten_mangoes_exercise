@@ -56,8 +56,9 @@ protected
   end
 
   def handle_index_search
-    @movies = @movies.title_includes(params[:t]) if params[:t].present?
-    @movies = @movies.director_includes(params[:d]) if params[:d].present?
+    # @movies = @movies.title_includes(params[:t]) if params[:t].present?
+    # @movies = @movies.director_includes(params[:d]) if params[:d].present?
+    @movies = @movies.title_or_director_includes(params[:t]) if params[:t].present?
     if params[:length].present?
       case params[:length]
       when 'less90'
