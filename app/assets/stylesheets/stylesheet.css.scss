@@ -11,7 +11,7 @@ body {
   background-color: $black-color;
 }
 
-p {
+p, small {
   color: $text-color;
 }
 
@@ -63,4 +63,30 @@ label {
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.submit-movie-section {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.search-section {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.movies-section {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.search-label {
+  width: 150px;
+  float: left;
+}
+
+.search-input {}
+
+.search-row {
+  margin-bottom: 10px;
 }

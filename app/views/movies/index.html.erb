@@ -1,10 +1,10 @@
 <h1>Rotten Mangoes</h1>
-<div>
-  <%= render 'search' %>
-</div>
-<div>
+<section class='submit-movie-section'>
   <%= link_to "Submit a Movie!", new_movie_path %>
-</div>
-<div>
+</section>
+<section class='search-section'>
+  <%= render 'search' %>
+</section>
+<section class='movies-section'>
   <%= render @movies %>
-</div>
+</section>
