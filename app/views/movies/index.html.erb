@@ -1,7 +1,10 @@
 <h1>Rotten Mangoes</h1>
-<hr>
-<%= render 'search' %>
-<hr>
-<%= link_to "Submit a Movie!", new_movie_path %>
-<hr>
-<%= render @movies %>
+<div>
+  <%= render 'search' %>
+</div>
+<div>
+  <%= link_to "Submit a Movie!", new_movie_path %>
+</div>
+<div>
+  <%= render @movies %>
+</div>

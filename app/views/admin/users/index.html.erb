@@ -2,9 +2,9 @@
 <hr>
 <%= link_to "Create New User", new_admin_user_path %>
 <hr>
-<div>
+<p>
   <%= link_to "<< Previous Page", admin_prev_users_page_path %> | Page <%= session[:admin_users_page] %> of <%= @max_pages %> | <%= link_to "Next Page >>", admin_next_users_page_path %>
-</div>
+</p>
 <hr>
 <% @users_page.each do |user| %>
   <h2>User ID: <%= user.id %> -- <%= user.email %></h2>

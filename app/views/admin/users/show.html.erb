@@ -5,9 +5,9 @@
 <% @user.reviews.each do |review| %>
   <h4><%= review.movie.title %></h4>
   <ul>
-    <li>Rating: <%= review.rating_out_of_ten %>/10</li>
-    <li>Character Count: <%= review.text.length %></li>
-    <li>Creation Date: <%= formatted_date(review.created_at) %></li>
+    <li><p>Rating: <%= review.rating_out_of_ten %>/10</p></li>
+    <li><p>Character Count: <%= review.text.length %></p></li>
+    <li><p>Creation Date: <%= formatted_date(review.created_at) %></p></li>
   </ul>
 <% end %>
 <%= link_to "Back to Admin User Index", admin_users_path %>
