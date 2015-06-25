@@ -29,6 +29,7 @@ class Admin::UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
+    UserMailer.deletion_email(@user)
     destroyed_user_full_name = @user.full_name
     @user.destroy
     redirect_to admin_users_path, notice: "User: #{destroyed_user_full_name} destroyed."
