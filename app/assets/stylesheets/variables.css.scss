@@ -1,0 +1,20 @@
+// Project Variables
+$mango-green: #6e6a42;
+$mango-yellow-green: #d1c15d;
+$mango-light-yellow: #ffecbb;
+$mango-yellow: #ffd565;
+$mango-light-brown: #e4a827;
+$mango-brown: #9d692c;
+$mango-red: #d55025;
+
+// Bootstrap Overrides
+$body-bg: $mango-light-yellow;
+$link-color: $mango-brown;
+
+$btn-default-color: $mango-green;
+$btn-default-bg: #ffffff;
+$btn-default-border: darken($mango-green, 5%);
+
+$btn-primary-color: $mango-yellow;
+$btn-primary-bg: $mango-brown;
+$btn-primary-border: darken($mango-brown, 5%);

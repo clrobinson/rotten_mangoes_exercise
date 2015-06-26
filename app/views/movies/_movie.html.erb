@@ -1,7 +1,8 @@
-<%= link_to image_tag(movie.poster_url.to_s), movie_path(movie) %>
-<h2><%= link_to movie.title, movie_path(movie) %></h2>
-<p>Rating: <%= movie.review_average %>/10</p>
-<h3><%= formatted_date(movie.release_date) %></h3>
-<h4>Directed by:  <%= movie.director %> | Runtime: <%= movie.runtime_in_minutes %> minutes</h4>
-<p><%= movie.description %></p>
-<hr>
+<div class="container-item container-item-highlight">
+  <%= link_to image_tag(movie.poster_url.to_s), movie_path(movie) %>
+  <h2><%= link_to movie.title, movie_path(movie) %></h2>
+  <p>Rating: <%= movie.review_average %>/10</p>
+  <h3><%= formatted_date(movie.release_date) %></h3>
+  <h4>Directed by:  <%= movie.director %> | Runtime: <%= movie.runtime_in_minutes %> minutes</h4>
+  <p><%= movie.description %></p>
+</div>

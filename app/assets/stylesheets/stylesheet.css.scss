@@ -1,92 +1,19 @@
-$black-color: #141427;
-$grey-color: #566e89;
-$dark-color: #6aa0c1;
-$light-color: #8cb9d4;
-$accent-color: #566e89;
-$text-color: #dddddd;
-
-body {
-  font-family: Arial, sans-serif;
-  margin: 0 0 0 0;
-  background-color: $black-color;
-}
-
-p, small {
-  color: $text-color;
-}
-
-a:link {
-  text-decoration: none;
-  color: $light-color;
-}
-a:visited {
-  text-decoration: none;
-  color: $dark-color;
-}
-a:hover {
-  text-decoration: underline;
-  color: $dark-color;
-}
-a:active {
-    text-decoration: underline;
-    color: $dark-color;
-}
-
-h1, h2, h3, h4, h5 {
-  color: $text-color;
-}
-
-label {
-  color: $dark-color;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-.user-info {
-  background-color: #000000;
-  padding: 10px 10px 10px 10px;
-  text-align: right;
-  font-size: 14px;
-  color: $light-color;
-}
-
-.flash {
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 10px 10px 10px 10px;
-  background-color: $light-color;
-  color: $black-color;
-}
-
 .main-container {
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 800px;
 }
 
-.submit-movie-section {
-  margin-top: 10px;
-  margin-bottom: 10px;
+.status-header-footer {
+  padding: 8px 8px 8px 8px;
+  background-color: $mango-green;
+  color: $mango-light-yellow;
 }
 
-.search-section {
-  margin-top: 10px;
-  margin-bottom: 10px;
+.container-item {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 15px 15px 15px 15px;
 }
 
-.movies-section {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.search-label {
-  width: 150px;
-  float: left;
-}
-
-.search-input {}
-
-.search-row {
-  margin-bottom: 10px;
+.container-item-highlight {
+  background-color: $mango-yellow;
 }

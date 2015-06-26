@@ -1,10 +1,6 @@
-<section class='submit-movie-section'>
-  <%= link_to "Submit a Movie!", new_movie_path %>
-  <hr>
-</section>
-<section class='search-section'>
-  <%= render 'search' %>
-</section>
-<section class='movies-section'>
-  <%= render @movies %>
-</section>
+<div class="container-item">
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#searchModal">Search</button>
+  <%= link_to "Submit a Movie!", new_movie_path, class: "btn btn-primary" %>
+</div>
+<%= render 'search' %>
+<%= render @movies %>

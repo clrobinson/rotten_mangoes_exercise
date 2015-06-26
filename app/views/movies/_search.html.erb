@@ -1,35 +1,42 @@
-<h2>Search Rotten Mangoes...</h2>
-<%= form_tag(movies_path, method: 'get') do %>
-  <div class='search-row'>
-    <div class='search-label'><%= label_tag(:t, "Movie Title or Director:") %></div>
-    <div class='search-input'><%= text_field_tag(:t) %></div>
+<!-- Modal -->
+<div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="searchModal">Search Rotten Mangoes</h4>
+      </div>
+      <%= form_tag(movies_path, method: 'get') do %>
+        <div class="modal-body">
+          <div class="form-group">
+            <%= label_tag(:t, "Movie Title or Director:") %>
+            <%= text_field_tag(:t, nil, class: "form-control") %>
+          </div>
+          <div class="form-group">
+            <%= label_tag(:length, "Movie Length:") %>
+            <%= select_tag(:length, "<option value='less90'>Under 90 Minutes</option><option value='90to120'>From 90 to 120 Minutes</option><option value='120more'>More Than 120 Minutes</option>".html_safe, include_blank: true, class: "form-control") %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <%= submit_tag("Search", class: "btn btn-primary") %>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <!-- <div  class='search-row'>
-    <div class='search-label'><%= label_tag(:d, "Search Movie Director:") %></div>
-    <div class='search-input'><%= text_field_tag(:d) %></div>
-  </div> -->
-  <div class='search-row'>
-    <div class='search-label'><%= label_tag(:length, "Movie Length:") %></div>
-    <div class='search-input'><%= select_tag(:length, "<option value='less90'>Under 90 Minutes</option><option value='90to120'>From 90 to 120 Minutes</option><option value='120more'>More Than 120 Minutes</option>".html_safe, include_blank: true) %></div>
-  </div>
-  <div class='search-row'>
-    <%= submit_tag("Search") %>
-  </div>
-<% end %>
+</div>
 <% if params[:t].present? %>
-  <p>Movies with '<%= params[:t] %>' in the title or director</p>
+  <div class="alert alert-info">Showing movies with '<%= params[:t] %>' in the title or director</div>
 <% end %>
-<!-- <% if params[:d].present? %>
-  <p>Movies with '<%= params[:d] %>' in the director name</p>
-<% end %> -->
+<!-- Searched Parameters Report -->
 <% if params[:length].present? %>
-  <% case params[:length] %>
-  <% when 'less90' %>
-    <p>Movies shorter than 90 minutes</p>
-  <% when '90to120' %>
-    <p>Movies from 90 minutes to 120 minutes</p>
-  <% when '120more' %>
-    <p>Movies longer than 120 minutes</p>
-  <% end %>
+  <div class="container-item">
+    <% case params[:length] %>
+    <% when 'less90' %>
+      <div class="alert alert-info">Showing movies shorter than 90 minutes</div>
+    <% when '90to120' %>
+      <div class="alert alert-info">Showing movies from 90 minutes to 120 minutes</div>
+    <% when '120more' %>
+      <div  class="alert alert-info">Showing movies longer than 120 minutes</div>
+    <% end %>
+  </div>
 <% end %>
-<hr>
